@@ -8,6 +8,7 @@ use App\Http\Requests\StoreTaskRequest; // v
 use App\Http\Requests\UpdateTaskRequest; // v
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\TaskResource; // added to modify the controller
 
 class TaskController extends Controller
 {
@@ -16,7 +17,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Task::all();
+        return TaskResource::collection(Task::all());
     }
 
     /**
@@ -40,7 +41,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        return TaskResource::make($task);
     }
 
     /**
