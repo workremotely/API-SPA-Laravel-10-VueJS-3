@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Models\Task;
-use App\Http\Requests\StoreTaskRequest;
-use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Controllers\Controller; // v
+use App\Models\Task; // v
+use App\Http\Requests\StoreTaskRequest; // v
+use App\Http\Requests\UpdateTaskRequest; // v
+use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 
 class TaskController extends Controller
 {
@@ -13,7 +16,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return Task::all();
     }
 
     /**
